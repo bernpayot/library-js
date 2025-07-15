@@ -13,21 +13,23 @@ closeButton.addEventListener("click", () => {
 
 const library = [];
 
-function Book(id, title, author, page, read) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.page = page;
-    this.read = read;
+class Book {
+    constructor(id, title, author, page, read) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.page = page;
+        this.read = read;
+    }
+    toggleReadStatus() {
+        if (this.read === "Not Read") {
+            return this.read = "Has Read";
+        } else {
+            return this.read = "Not Read";
+        };
+    }
 };
 
-Book.prototype.toggleReadStatus = function() {
-    if (this.read === "Not Read") {
-        return this.read = "Has Read";
-    } else {
-        return this.read = "Not Read";
-    };
-}
 
 
 function addBookToLibrary(id, title, author, page, read) {
